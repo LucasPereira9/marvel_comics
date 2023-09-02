@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images : {
-      domains : ['meups.com.br']
+      domains : ['meups.com.br', 'logodownload.org', 'comicvine.gamespot.com']
     }
   }
     
