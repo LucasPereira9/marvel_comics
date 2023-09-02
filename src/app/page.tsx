@@ -1,12 +1,17 @@
-import Image from 'next/image'
 import styles from './page.module.css'
 import Link from 'next/link'
+import Cards from '@/components/Cards'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1>hello lucas</h1>
-      <Link href='/Sobre'>lal</Link>
-    </main>
+    <html>
+      <body>
+        <div style={{height: '100vw', width: '100vw'}}>
+        <Cards />
+        </div>
+      
+      </body>
+    </html>
+    
   )
 }
