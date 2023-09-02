@@ -3,34 +3,23 @@ import {motion} from 'framer-motion'
 import styles from './page.module.css'
 import Image from 'next/image';
 import React from 'react';
+import { ICardsProps, IItemProps } from './cards.structure';
 
-export default function Cards() {
-   
-    const mocked = [{
-        title: 'ww',
-        key: 1,
-        description: 'LNSDAINBDSADNMOISADNSOIAMDPISANDIOMASD ASIODNASIDMIPAJSD AIDNASIDNIASNDAS DSAPINDIASNDA'
-    },{
-        title: 'qq',
-        key: 2,
-        description: 'bebebe'
-    },{
-        title: 'ss',
-        key: 3,
-        description: 'ceceec'
-    }]
+export default function Cards(props: ICardsProps) {
+
 
   return (
        <div className={styles.container}>
-      {mocked.map((item) => (
-        <div key={item.key}>
+      {props?.items?.map((item: IItemProps, index: number) => (
+        <div key={index}>
         <motion.button whileHover={{scale: 1.1}}>
         <Image
         width={200} 
         height={200}
-      src="https://meups.com.br/wp-content/uploads/2023/01/cats-49.jpg"
+      src={item.image}
       alt="image"
       />
+      <h1 className={styles.title}>{item.title}</h1>
         </motion.button>
       </div>
       ) )}

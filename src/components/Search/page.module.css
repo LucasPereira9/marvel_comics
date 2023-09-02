@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    width: 220px;
+    background-color: #EC1D24;
+    justify-content: space-between;
+    flex-direction: row;
+}

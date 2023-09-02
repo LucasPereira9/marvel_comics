@@ -1,4 +1,5 @@
 .container {
+    margin-top: 40px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -10,13 +11,6 @@
     padding: 3rem 5rem;
     width: 30px;
 }
-.card h2 {
-    color: red
-}
-
-.card p {
-    color: black;
-    max-width: 100px;
-    padding-top: 1rem;
-    line-height: 150%;
+.title {
+    font-size: 14px;
 }
