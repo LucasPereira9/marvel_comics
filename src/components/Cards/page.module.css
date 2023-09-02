@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 3rem 5rem;
+    width: 30px;
+}
+.card h2 {
+    color: red
+}
+
+.card p {
+    color: black;
+    max-width: 100px;
+    padding-top: 1rem;
+    line-height: 150%;
+}
