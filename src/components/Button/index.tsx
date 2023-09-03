@@ -14,7 +14,7 @@ export default function Button(props: IButtonProps) {
         href={{
           pathname: props.path ? props.path : null,
           query: {
-            data: props.path ? 'search' : null
+            data: props.path ? props.params : null
           }
         }}>
         {props.icon ? props.icon : props.title}

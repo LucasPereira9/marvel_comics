@@ -3,4 +3,5 @@ export interface IButtonProps {
     path?: string
     icon?: React.ReactNode
     onClick: () => void
+    params?: any
 }
