@@ -2,6 +2,7 @@
 .button {
     background-color: #EC1D24;
     border-width: 0;
+    margin-inline: 10px;
     font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }

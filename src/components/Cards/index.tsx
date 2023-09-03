@@ -11,7 +11,7 @@ export default function Cards(props: ICardsProps) {
   return (
        <div className={styles.container}>
       {props?.items?.map((item: IItemProps, index: number) => (
-        <div key={index}>
+        <div  className={styles.card} key={index}>
         <motion.button whileHover={{scale: 1.1}}>
         <Image
         width={200} 
@@ -19,8 +19,11 @@ export default function Cards(props: ICardsProps) {
       src={item.image}
       alt="image"
       />
-      <h1 className={styles.title}>{item.title}</h1>
         </motion.button>
+        <div className={styles.description}>
+        <h1 className={styles.title}>{item.title}</h1>
+        <h1 className={styles.title}>R$ {item.title}</h1>
+        </div>
       </div>
       ) )}
     </div>

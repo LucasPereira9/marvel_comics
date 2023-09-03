@@ -5,3 +5,10 @@
     justify-content: space-between;
     flex-direction: row;
 }
+.input {
+    border: 0;
+    outline: none;
+    background-color: white; 
+    color: black;
+    border-radius: 2px;
+}

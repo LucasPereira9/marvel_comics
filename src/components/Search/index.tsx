@@ -9,7 +9,8 @@ export default function SearchBar(props: ISearchProps) {
   return (
     <>
        <motion.div layout className={styles.container}>
-      <input style={{border: 0, outline: 'none',  backgroundColor: 'white', color: 'black'}} type='search' placeholder="buscar"/>
+      <input className={styles.input} type='search' placeholder="Dr. Strange..."/>
+      <Button path='/Description' onClick={props.cancelPress}  title='Buscar' />    
       <Button onClick={props.cancelPress}  title='Cancelar' />    
       </motion.div>
       
