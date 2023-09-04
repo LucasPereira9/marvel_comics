@@ -16,13 +16,11 @@ export default function Cards(props: ICardsProps) {
     clearCart,
   } = useContext(CartContext);
 
-  console.log('lucas',productsCart)
-
 
   return (
        <div className={styles.container}>
       {props?.items?.map((item: IItemProps, index: number) => (
-        <div  className={styles.card} key={index}>
+        <div style={{justifyContent: item?.format ? 'space-between' : null}}  className={styles.card} key={index}>
         <motion.button onClick={props.comicPressed} whileHover={{scale: 1.1}}>
           <Link  href={{
           pathname: item?.format ? '/comicsDescription' : props.comicPressed ? null : '/characterDescription',
@@ -40,17 +38,21 @@ export default function Cards(props: ICardsProps) {
         </motion.button>
         <div className={styles.description}>
         <h1 className={styles.title}>{item?.title}</h1>
-        <h1 className={styles.title}>{ props.homePage ? '' : `$ ${item?.prices[0]?.price}`}</h1> 
+        <h1 style={{color: 'yellow'}} className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1> 
 
         {item?.format ? 
-         <div>
-           <h3>
+         <div className={styles.add_to_card_content}>
+           <h3>cart {' '} 
               {productsCart.find((comic) => comic.id === item?.id)?.qtd
                 ? productsCart.find((comic) => comic.id === item?.id)?.qtd
                 : 0}
            </h3>
-            <button onClick={() => addProductToCard(item?.id)}>+</button>
-            <button onClick={() => removeProductToCard(item?.id)}>-</button>
+           <div className={styles.add_to_card_plus_content}>
+              <button className={styles.add_to_card_Button} 
+              onClick={() => addProductToCard({id: item?.id, price: item?.prices[0]?.price})}>+ Add</button>
+              <button className={styles.add_to_card_Button} 
+              onClick={() => removeProductToCard(item?.id)}>- remove</button>
+           </div>
         </div> : null }
        
       

@@ -1,4 +1,4 @@
-export const Most_Famous = [{
+export const Most_Famous_Heroes = [{
     id: 1009220,
     title: 'Captain America',
     image: 'https://comicvine.gamespot.com/a/uploads/scale_small/12/124259/8459983-rco031_1650495781.jpg'

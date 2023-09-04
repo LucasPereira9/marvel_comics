@@ -16,12 +16,12 @@ export default function CartProvider({
 {
   const [productsCart, setProductsCart] = useState([])
 
-  function addProductToCard(id: number) {
+  function addProductToCard({id, price}: {id: number, price: number}) {
     const copyProductsCart = [...productsCart]
     const item = copyProductsCart.find((product) => product.id === id )
    
     if(!item) {
-      copyProductsCart.push({id: id, qtd: 1})
+      copyProductsCart.push({id: id, qtd: 1, price: price })
     }
     else {
       item.qtd = item.qtd + 1
