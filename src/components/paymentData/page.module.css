@@ -1,0 +1,40 @@
+.container {
+    background-color: white;
+    width: 60%;
+    height: 30vh;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.promo_title {
+    margin: 15px;
+    font-size: 17px;
+    color: black;
+}
+
+.promo_input {
+    background-color: black;
+    border-radius: 8px;
+    margin-left: 20px;
+    border-width: 2px;
+    padding: 6px;
+    border-color: #EC1D24;
+}
+
+.payment_amount {
+    color: black;
+    margin: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.payment_value {
+    font-weight: 400;
+    margin-top: 6px;
+    margin-left: 20px;
+    text-align: center;
+}

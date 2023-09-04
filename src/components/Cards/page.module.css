@@ -7,8 +7,10 @@
 }
 
 .card {
-    height: 300px;
-    margin-top: 10vh;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8vh;
 }
 .title {
     max-width: 26vh;
@@ -20,4 +22,25 @@
     margin-left: 10px;
     justify-content: center;
     margin-top: 16px;
+}
+
+.add_to_card_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.add_to_card_plus_content {
+    width: 160px;
+    display: flex;
+    margin: 6px;
+    justify-content: space-between;
+}
+
+.add_to_card_Button {
+    background-color: black;
+    border-color: #EC1D24;
+    padding: 5px;
+    font-size: 15px;
 }
