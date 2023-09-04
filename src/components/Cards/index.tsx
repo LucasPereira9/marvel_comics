@@ -40,7 +40,7 @@ export default function Cards(props: ICardsProps) {
         </motion.button>
         <div className={styles.description}>
         <h1 className={styles.title}>{item?.title}</h1>
-        <h1 className={styles.title}>{ props.homePage ? '' : `$ ${item?.prices[0]?.price}`}</h1> 
+        <h1 className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1> 
 
         {item?.format ? 
          <div>
