@@ -22,13 +22,13 @@ export default function Button(props: IButtonProps) {
             data: props.path ? props.params : null
           }
         }}>
-          
-      </Link>   
-      <div className={styles.car_Content}>
+        <div className={styles.car_Content}>
         {props.icon ? props.icon : props.title}  
       {props.icon && 
       <h1 className={styles.car_data}>{productsCart.length}</h1>}
       </div>
+      </Link>   
+ 
       
      </motion.button>
     </div>
