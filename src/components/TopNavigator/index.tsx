@@ -24,8 +24,8 @@ export default function TopNavigator() {
       <motion.div className={styles.buttonsContainer} layout transition={{layout: {duration: 2}}} >
         {isSearchBarOpen ? <SearchBar cancelPress={() => setIsSearchBarOpen(false)} /> : 
         <>
-          <Button path='/' title='Início' />
-          <Button onClick={() => setIsSearchBarOpen(true)} title='Buscar personagem' />
+          <Button path='/' title='Home' />
+          <Button path='/Description' title='Search character' />
         </>
         }
         

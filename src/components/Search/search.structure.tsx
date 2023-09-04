@@ -1,3 +1,5 @@
 export interface ISearchProps {
-    cancelPress: () => void
+    pressed?: () => void
+    onchange: any
+    value: string
 }

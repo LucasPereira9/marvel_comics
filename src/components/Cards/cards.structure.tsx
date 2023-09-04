@@ -1,5 +1,6 @@
 export interface ICardsProps {
     items: Array<any>
+    homePage: boolean
 }
 
 export interface IItemProps {

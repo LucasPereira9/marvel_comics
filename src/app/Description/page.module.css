@@ -1,0 +1,19 @@
+.content {
+  background-color: black;
+  height: 100vh
+}
+
+.searchContainer {
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+}
+.subtitle {
+  margin: 30px;
+  font-family: 'Times New Roman'
+}
+
+.not_Found {
+  text-align: center;
+  margin: 100px
+}

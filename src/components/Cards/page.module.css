@@ -1,5 +1,5 @@
 .container {
-    margin-top: 40px;
+    margin: 40px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;

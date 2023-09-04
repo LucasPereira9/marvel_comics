@@ -22,9 +22,11 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
+    "react-lottie": "^1.2.3",
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@types/md5": "^2.3.2"
+    "@types/md5": "^2.3.2",
+    "@types/react-lottie": "^1.2.6"
   }
 }

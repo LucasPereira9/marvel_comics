@@ -12,9 +12,26 @@ const hash = md5(time + privateKey + publicKey)
 
 class ApiServices {
   async SearchCharacter({character}: {character: string}): Promise<any> {
-    axios.get(`${baseURL}characters?ts=${time}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${character}`)
-    .then(response => console.log('RESPOSTAA: ', response))
-    .catch(err => console.log('ERRROUU: ', err))
+    try {
+      const response = await axios.get(`${baseURL}characters?ts=${time}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${character}`)
+        .then(data => {
+          return data
+        });
+      return response;
+    } catch (error: any) {
+      console.log('booksError: ', error);
+    }
+  }
+  async GetComics({characterId}: {characterId: number}): Promise<any> {
+    try {
+      const response = await axios.get(`${baseURL}characters/${characterId}/comics?ts=${time}&apikey=${publicKey}&hash=${hash}`)
+        .then(data => {
+          return data
+        });
+      return response;
+    } catch (error: any) {
+      console.log('booksError: ', error);
+    }
   }
 }
 

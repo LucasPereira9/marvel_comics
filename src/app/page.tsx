@@ -13,8 +13,8 @@ export default function Home() {
       <body>
         <div>
         <TopNavigator />
-        <h1 className={styles.title}>MAIS POPULARES</h1>
-        <Cards items={Most_Famous} />
+        <h1 className={styles.title}>MOST POPULAR</h1>
+        <Cards homePage={true} items={Most_Famous} />
         </div>
       
       </body>

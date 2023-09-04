@@ -1,12 +1,15 @@
 .container {
     display: flex;
     width: 220px;
+    height: 25px;
+    align-items: center;
     background-color: #EC1D24;
     justify-content: space-between;
     flex-direction: row;
 }
 .input {
     border: 0;
+    height: 25px;
     outline: none;
     background-color: white; 
     color: black;
