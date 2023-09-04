@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import { motion } from 'framer-motion';
 import Button from '../Button';
 import { IPaymentDataProps } from './paymentData.structure';
+import LoadingSpinner from '../loadSpinner';
 
 export default function PaymentData(props: IPaymentDataProps) {
     const [isCupomPressed, setIsCupomPressed] = React.useState(false as boolean)
@@ -30,9 +31,11 @@ export default function PaymentData(props: IPaymentDataProps) {
              <div className={styles.payment_amount}>
                 <h1>total</h1>
              <h2 style={{fontWeight: 'bold'}} className={styles.payment_value}>$ {isCupomPressed ? '00,00' : props.total}</h2>
+              
              </div>
-                <Button title='Pagar' />
+            
              </div>
+             <button onClick={props.payPressed} className={styles.pay_button}>{props.loading ? <LoadingSpinner /> : 'Pagar'}</button>
         </div>
         
       

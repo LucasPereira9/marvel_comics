@@ -9,6 +9,7 @@
 .content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .promo_title {
@@ -40,3 +41,30 @@
     margin-left: 20px;
     text-align: center;
 }
+
+.pay_button {
+    background-color: #EC1D24; 
+    color: #fff; 
+    border: none; 
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 20px;
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease-in-out; 
+  
+  }
+  
+  .pay_button:hover {
+    background-color: #d6363b;
+  }
+  
+  
+  
+  
+  
+  

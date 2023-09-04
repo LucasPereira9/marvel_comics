@@ -19,7 +19,7 @@ class ApiServices {
         });
       return response;
     } catch (error: any) {
-      console.log('booksError: ', error);
+      console.log('searchCharacterError: ', error);
     }
   }
   async GetCharacterComics({characterId}: {characterId: number}): Promise<any> {
@@ -30,7 +30,7 @@ class ApiServices {
         });
       return response;
     } catch (error: any) {
-      console.log('booksError: ', error);
+      console.log('getCharacterError: ', error);
     }
   }
   async GetSelectedComic({comicId}: {comicId: number}): Promise<any> {
@@ -41,7 +41,7 @@ class ApiServices {
         });
       return response;
     } catch (error: any) {
-      console.log('booksError: ', error);
+      console.log('selectedComicError: ', error);
     }
   }
   async SearchComic({comic}: {comic: string}): Promise<any> {
@@ -52,7 +52,7 @@ class ApiServices {
         });
       return response;
     } catch (error: any) {
-      console.log('booksError: ', error);
+      console.log('SearchComicError: ', error);
     }
   }
 }

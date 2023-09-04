@@ -16,8 +16,6 @@ export default function Cards(props: ICardsProps) {
     clearCart,
   } = useContext(CartContext);
 
-  console.log('lucas',productsCart)
-
 
   return (
        <div className={styles.container}>
@@ -40,11 +38,11 @@ export default function Cards(props: ICardsProps) {
         </motion.button>
         <div className={styles.description}>
         <h1 className={styles.title}>{item?.title}</h1>
-        <h1 className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1> 
+        <h1 style={{color: 'yellow'}} className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1> 
 
         {item?.format ? 
          <div className={styles.add_to_card_content}>
-           <h3>on cart {' '} 
+           <h3>cart {' '} 
               {productsCart.find((comic) => comic.id === item?.id)?.qtd
                 ? productsCart.find((comic) => comic.id === item?.id)?.qtd
                 : 0}

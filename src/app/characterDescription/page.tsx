@@ -32,7 +32,6 @@ export default function Description() {
         characterId: id
       })
       setRelatedComics(result.data.data.results)
-      console.log(' LKSAMNCASDMAOS', result.data.data.results)
     }
     catch (err) {
       console.log(err)
@@ -49,8 +48,6 @@ export default function Description() {
       setTimeout(() => {
         setLoading(false)
       }, 3000)
-
-      console.log('heroiiii', result.data.data.results[0])
    
      
       setMainComic(result.data.data.results[0])

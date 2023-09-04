@@ -47,8 +47,6 @@ export default function Description() {
    
      
       setMainComic(result.data.data.results[0])
-
-    console.log('MAINNN', result.data.data.results[0])
     }
     catch (err) {
       console.log(err)
