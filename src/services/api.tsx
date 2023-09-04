@@ -46,7 +46,7 @@ class ApiServices {
   }
   async SearchComic({comic}: {comic: string}): Promise<any> {
     try {
-      const response = await axios.get(`${baseURL}comics?ts=${time}&apikey=${publicKey}&hash=${hash}&title=${comic}`)
+      const response = await axios.get(`${baseURL}comics?ts=${time}&apikey=${publicKey}&hash=${hash}&format=${comic}`)
         .then(data => {
           return data
         });

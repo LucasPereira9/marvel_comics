@@ -16,6 +16,8 @@ export default function Cards(props: ICardsProps) {
     clearCart,
   } = useContext(CartContext);
 
+  console.log('lucas',productsCart)
+
 
   return (
        <div className={styles.container}>
