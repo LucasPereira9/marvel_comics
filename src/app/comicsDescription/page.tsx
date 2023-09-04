@@ -13,7 +13,6 @@ import { useSearchParams } from 'next/navigation'
 
 export default function Description() {
   const [mainComic, setMainComic] = React.useState();
-  const [relatedComics, setRelatedComics] = React.useState();
   const [loading, setLoading] = React.useState(true as boolean)
   const {
     control,
@@ -21,29 +20,18 @@ export default function Description() {
     formState: {isValid},
     watch
   } = useForm({mode: 'onChange'});
-  const Character = watch('character')
+  const Comic = watch('comic')
   const searchParams = useSearchParams()
   let param = searchParams.get('data')
 
 
-  const GetComics = async (id: number) => {
-    try {
-      const result = await ApiServices.GetComics({
-        characterId: id
-      })
-      setRelatedComics(result.data.data.results)
-    }
-    catch (err) {
-      console.log(err)
-    }
-  };
 
-  const GetHeroData = async () => {
+  const GetSelectedComic = async () => {
     mainComic !== undefined ? param = '' : null
      setLoading(true)
     try {
-      const result = await ApiServices.SearchCharacter({
-        character: param.length > 1 ? searchParams.get('data') : Character
+      const result = await ApiServices.GetSelectedComic({
+        comicId: searchParams.get('data')
       })
       setTimeout(() => {
         setLoading(false)
@@ -51,14 +39,15 @@ export default function Description() {
    
      
       setMainComic(result.data.data.results[0])
-      GetComics(result.data.data.results[0].id)
+      console.log('COMICCCC: ', result.data.data)
     }
     catch (err) {
       console.log(err)
     }
   };
+  
   React.useEffect(() => {
-    param ? GetHeroData() : null
+    param ? GetSelectedComic() : null
   },[])
 
 
@@ -67,32 +56,21 @@ export default function Description() {
   return (
     <div className={styles.content}>
        <TopNavigator />
-       <div className={styles.searchContainer}>
-       <Controller
-          control={control}
-          rules={{required: true}}
-          render={({field: {onChange, value}}) => (
-            <SearchBar pressed={() => GetHeroData()} value={value} onchange={onChange}  /> 
-          )}
-          name={'character'}
-          defaultValue={''}
-        />
-       </div>
       
       {loading ? <Loading /> :  
       <>
       {mainComic === undefined ? 
       <div>
-        <h1 className={styles.not_Found}>character not found</h1>
+        <h1 className={styles.not_Found}>comic not found</h1>
       </div> : <>
        <DescriptionCard 
       image={`${mainComic?.thumbnail?.path}.jpg`}
-      description={mainComic?.description}
+      description={mainComic?.description === null || mainComic?.description.length < 1 ?
+        'description not provided' : mainComic?.description}
       title={mainComic?.name} />
 
-      <h1 className={styles.subtitle}>Related Comics</h1>
+      <h1 className={styles.subtitle}>add to cart</h1>
 
-      <Cards items={relatedComics} />
       </>
       }
       </>

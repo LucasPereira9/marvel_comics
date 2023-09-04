@@ -25,7 +25,7 @@ export default function TopNavigator() {
         {isSearchBarOpen ? <SearchBar cancelPress={() => setIsSearchBarOpen(false)} /> : 
         <>
           <Button path='/' title='Home' />
-          <Button path='/Description' title='Search character' />
+          <Button path='/characterDescription' title='Search' />
         </>
         }
         

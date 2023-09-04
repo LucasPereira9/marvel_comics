@@ -13,11 +13,11 @@ export default function Cards(props: ICardsProps) {
        <div className={styles.container}>
       {props?.items?.map((item: IItemProps, index: number) => (
         <div  className={styles.card} key={index}>
-        <motion.button whileHover={{scale: 1.1}}>
+        <motion.button onClick={props.comicPressed} whileHover={{scale: 1.1}}>
           <Link  href={{
-          pathname: '/Description',
+          pathname: item?.format ? '/comicsDescription' : props.comicPressed ? null : '/characterDescription',
           query: {
-            data: item?.title
+            data: item?.format ? item?.id : item?.title
           }
         }}>
         <Image

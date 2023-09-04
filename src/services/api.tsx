@@ -22,9 +22,31 @@ class ApiServices {
       console.log('booksError: ', error);
     }
   }
-  async GetComics({characterId}: {characterId: number}): Promise<any> {
+  async GetCharacterComics({characterId}: {characterId: number}): Promise<any> {
     try {
       const response = await axios.get(`${baseURL}characters/${characterId}/comics?ts=${time}&apikey=${publicKey}&hash=${hash}`)
+        .then(data => {
+          return data
+        });
+      return response;
+    } catch (error: any) {
+      console.log('booksError: ', error);
+    }
+  }
+  async GetSelectedComic({comicId}: {comicId: number}): Promise<any> {
+    try {
+      const response = await axios.get(`${baseURL}comics/${comicId}?ts=${time}&apikey=${publicKey}&hash=${hash}`)
+        .then(data => {
+          return data
+        });
+      return response;
+    } catch (error: any) {
+      console.log('booksError: ', error);
+    }
+  }
+  async SearchComic({comic}: {comic: string}): Promise<any> {
+    try {
+      const response = await axios.get(`${baseURL}comics?ts=${time}&apikey=${publicKey}&hash=${hash}&title=${comic}`)
         .then(data => {
           return data
         });
