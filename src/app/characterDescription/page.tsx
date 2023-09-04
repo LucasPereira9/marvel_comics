@@ -49,6 +49,8 @@ export default function Description() {
       setTimeout(() => {
         setLoading(false)
       }, 3000)
+
+      console.log('heroiiii', result.data.data.results[0])
    
      
       setMainComic(result.data.data.results[0])

@@ -3,8 +3,13 @@ import { motion } from 'framer-motion';
 import styles from './page.module.css'
 import { IButtonProps } from './button.structure';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { CartContext } from '@/app/layout';
 
 export default function Button(props: IButtonProps) {
+  const {
+    productsCart
+  } = useContext(CartContext);
 
   return (
     <div>
@@ -17,8 +22,14 @@ export default function Button(props: IButtonProps) {
             data: props.path ? props.params : null
           }
         }}>
-        {props.icon ? props.icon : props.title}
-      </Link>
+          
+      </Link>   
+      <div className={styles.car_Content}>
+        {props.icon ? props.icon : props.title}  
+      {props.icon && 
+      <h1 className={styles.car_data}>{productsCart.length}</h1>}
+      </div>
+      
      </motion.button>
     </div>
   )

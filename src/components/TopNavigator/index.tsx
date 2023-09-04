@@ -4,14 +4,14 @@ import styles from './page.module.css'
 import Image from 'next/image';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Button from '../Button';
-import React from 'react';
-import SearchBar from '../Search';
+import React,  from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function TopNavigator() {
   const router = useRouter()
   const searchParams = useSearchParams();
   const [isSearchBarOpen, setIsSearchBarOpen] = React.useState(false as boolean)
+
 
   return (
     <div className={styles.container}>
@@ -22,13 +22,8 @@ export default function TopNavigator() {
       alt="image"
       />
       <motion.div className={styles.buttonsContainer} layout transition={{layout: {duration: 2}}} >
-        {isSearchBarOpen ? <SearchBar cancelPress={() => setIsSearchBarOpen(false)} /> : 
-        <>
           <Button path='/' title='Home' />
-          <Button path='/characterDescription' title='Search' />
-        </>
-        }
-        
+          <Button path='/characterDescription' title='Search' />      
       </motion.div>
       <Button icon={ <AiOutlineShoppingCart size={'2em'} />} />
     </div>

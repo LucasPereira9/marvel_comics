@@ -1,5 +1,5 @@
 .container {
-    margin: 40px;
+    margin: 20px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -8,6 +8,7 @@
 
 .card {
     height: 300px;
+    margin-top: 10vh;
 }
 .title {
     max-width: 26vh;
