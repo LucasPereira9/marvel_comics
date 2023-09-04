@@ -1,5 +1,5 @@
 .container {
-    margin-top: 40px;
+    margin: 40px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -7,10 +7,16 @@
 }
 
 .card {
-    background: white;
-    padding: 3rem 5rem;
-    width: 30px;
+    height: 300px;
 }
 .title {
+    max-width: 26vh;
+    text-align: center;
+    margin-bottom: 5px;
     font-size: 14px;
+}
+.description {
+    margin-left: 10px;
+    justify-content: center;
+    margin-top: 16px;
 }

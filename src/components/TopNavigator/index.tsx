@@ -6,8 +6,11 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Button from '../Button';
 import React from 'react';
 import SearchBar from '../Search';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function TopNavigator() {
+  const router = useRouter()
+  const searchParams = useSearchParams();
   const [isSearchBarOpen, setIsSearchBarOpen] = React.useState(false as boolean)
 
   return (
@@ -21,8 +24,8 @@ export default function TopNavigator() {
       <motion.div className={styles.buttonsContainer} layout transition={{layout: {duration: 2}}} >
         {isSearchBarOpen ? <SearchBar cancelPress={() => setIsSearchBarOpen(false)} /> : 
         <>
-          <Button title='Início' />
-          <Button onClick={() => setIsSearchBarOpen(true)} title='Buscar personagem' />
+          <Button path='/' title='Home' />
+          <Button path='/Description' title='Search character' />
         </>
         }
         
