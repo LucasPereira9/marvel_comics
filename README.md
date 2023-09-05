@@ -32,3 +32,16 @@ a react.js application that gets all the data from the marvel api: 'https://deve
 </p>
 
 
+---
+<p align="center">
+  Conecte-se comigo no LinkedIn:
+</p>
+<p align="center">
+  <a href="https://www.linkedin.com/in/lucas-almeida-5280b9206/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</p>
+<p align="center">
+  &copy; 2023 Lucas Almeida. Este projeto está sob a licença [MIT](LICENSE).
+</p>
+
