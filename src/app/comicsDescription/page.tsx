@@ -11,6 +11,9 @@ import Cards from '@/components/Cards';
 import { useSearchParams } from 'next/navigation'
 import { CartContext } from '../layout';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import Lottie from 'react-lottie';
+import sadFace from '../../assets/videos/sadFace.json'
+
 
 
 export default function Description() {
@@ -25,6 +28,14 @@ export default function Description() {
   const Comic = watch('comic')
   const searchParams = useSearchParams()
   let param = searchParams.get('data')
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: sadFace,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
 
   const {
     productsCart = [],
@@ -76,7 +87,15 @@ export default function Description() {
        comicPrice={mainComic?.prices[0]?.price}
       image={`${mainComic?.thumbnail?.path}.jpg`}
       description={mainComic?.description === null || mainComic?.description.length < 1 ?
-        'sem descrição' : mainComic?.description}
+        <div>
+          <h1>Quadrinho sem descriçao</h1>
+           <Lottie
+	    options={defaultOptions}
+        height={300}
+        width={300}
+      />
+        </div>
+         : mainComic?.description}
       title={mainComic?.name} />
       </>
       }

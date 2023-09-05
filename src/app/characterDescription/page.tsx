@@ -9,6 +9,8 @@ import { Controller, useForm } from 'react-hook-form';
 import Loading from '@/components/Loading';
 import Cards from '@/components/Cards';
 import { useSearchParams } from 'next/navigation'
+import Lottie from 'react-lottie';
+import sadFace from '../../assets/videos/sadFace.json'
 
 
 export default function Description() {
@@ -24,6 +26,14 @@ export default function Description() {
   const Character = watch('character')
   const searchParams = useSearchParams()
   let param = searchParams.get('data')
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: sadFace,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
 
 
   const GetComics = async (id: number) => {
@@ -88,7 +98,15 @@ export default function Description() {
        <DescriptionCard 
        hero={true}
       image={`${mainComic?.thumbnail?.path}.jpg`}
-      description={mainComic?.description.length > 1 ? mainComic?.description : 'herói sem descriçao'}
+      description={mainComic?.description.length > 1 ? mainComic?.description : 
+      <div>
+        <h1>Herói sem descriçao</h1>
+         <Lottie
+    options={defaultOptions}
+      height={240}
+      width={240}
+    />
+      </div>}
       title={mainComic?.name} />
 
       <h1 className={styles.subtitle}>Gibis Disponível</h1>

@@ -1,12 +1,12 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import test from '../../assets/videos/test.json'
+import LoadingJson from '../../assets/videos/LoadingJson.json'
 
 export default function Loading() {
     const defaultOptions = {
         loop: true,
         autoplay: true,
-        animationData: test,
+        animationData: LoadingJson,
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
         }
