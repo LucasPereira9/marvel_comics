@@ -19,6 +19,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 # 🚀 Loja de Quadrinhos Marvel - Desenvolvimento Web 🌐
 
 
+## Description
+
+a react.js application that gets all the data from the marvel api: 'https://developer.marvel.com/'
+
+
 <p align="center">
   <a rel="noopener" target="_blank"><img width="150" src="./src/assets/images/homepage.png" alt="home"></a>
    <a rel="noopener" target="_blank"><img width="150" src="./src/assets/images/heropage.png" alt="hero"></a>
