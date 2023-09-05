@@ -46,10 +46,10 @@ export default function CartProvider({
 
 
   return (
-    <html lang="en">
+  
       <CartContext.Provider value={{productsCart, addProductToCard, removeProductToCard, ClearCart}}>
       <body className={inter.className}>{children}</body>
       </CartContext.Provider>
-    </html>
+ 
   )
 }

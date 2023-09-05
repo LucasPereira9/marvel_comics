@@ -10,6 +10,7 @@ import Loading from '@/components/Loading';
 import Cards from '@/components/Cards';
 import { useSearchParams } from 'next/navigation'
 import { CartContext } from '../layout';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 
 export default function Description() {
@@ -68,27 +69,15 @@ export default function Description() {
       <>
       {mainComic === undefined ? 
       <div>
-        <h1 className={styles.not_Found}>comic not found</h1>
+        <h1 className={styles.not_Found}>quadrinho não encontrado</h1>
       </div> : <>
        <DescriptionCard 
+       comicId={mainComic?.id}
+       comicPrice={mainComic?.prices[0]?.price}
       image={`${mainComic?.thumbnail?.path}.jpg`}
       description={mainComic?.description === null || mainComic?.description.length < 1 ?
-        'description not provided' : mainComic?.description}
+        'sem descrição' : mainComic?.description}
       title={mainComic?.name} />
-
-        <div className={styles.add_to_card_content}>
-           <h3>on cart {' '} 
-              {productsCart.find((comic) => comic.id === mainComic?.id)?.qtd
-                ? productsCart.find((comic) => comic.id === mainComic?.id)?.qtd
-                : 0}
-           </h3>
-           <div className={styles.add_to_card_plus_content}>
-              <button className={styles.add_to_card_Button} 
-              onClick={() => addProductToCard({id: mainComic?.id, price: mainComic?.prices[0]?.price})}>+ Add</button>
-              <button className={styles.add_to_card_Button} 
-              onClick={() => removeProductToCard(mainComic?.id)}>- remove</button>
-           </div>
-        </div>
       </>
       }
       </>

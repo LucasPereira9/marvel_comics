@@ -75,7 +75,7 @@ export default function ShoppingCart() {
        <TopNavigator />
        {loading ? <Loading /> : productsCart.length === 0 ?
       <div className={styles.empyt_content}>
-          <h1 style={{margin: '60px'}}>empty cart</h1>
+          <h1 style={{margin: '60px'}}>carrinho vazio</h1>
       </div> : 
       <>
       <Cards items={CartItems} />

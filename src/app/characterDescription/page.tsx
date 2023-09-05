@@ -83,11 +83,12 @@ export default function Description() {
       <>
       {mainComic === undefined ? 
       <div>
-        <h1 className={styles.not_Found}>character not found</h1>
+        <h1 className={styles.not_Found}>herói nao encontrado</h1>
       </div> : <>
        <DescriptionCard 
+       hero={true}
       image={`${mainComic?.thumbnail?.path}.jpg`}
-      description={mainComic?.description.length > 1 ? mainComic?.description : 'description not provided'}
+      description={mainComic?.description.length > 1 ? mainComic?.description : 'herói sem descriçao'}
       title={mainComic?.name} />
 
       <h1 className={styles.subtitle}>Avaible Comics</h1>

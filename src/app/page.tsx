@@ -39,9 +39,9 @@ export default function Home() {
         <TopNavigator />
         {loading ? <Loading /> : 
         <>
-          <h1 className={styles.title}>BEST SELLERS</h1>
+          <h1 className={styles.title}>MAIS VENDIDOS</h1>
         <Cards items={comics} />
-        <h1 className={styles.title}>MOST POPULAR HEROES</h1>
+        <h1 className={styles.title}>HERÓIS MAIS POPULARES</h1>
         <Cards homePage={true} items={Most_Famous_Heroes} />
         </>}
         </div>

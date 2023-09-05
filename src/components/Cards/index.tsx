@@ -6,6 +6,7 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { ICardsProps, IItemProps } from './cards.structure';
 import { CartContext } from '@/app/layout';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Cards(props: ICardsProps) {
 
@@ -21,7 +22,7 @@ export default function Cards(props: ICardsProps) {
        <div className={styles.container}>
       {props?.items?.map((item: IItemProps, index: number) => (
         <div style={{justifyContent: item?.format ? 'space-between' : null}}  className={styles.card} key={index}>
-        <motion.button onClick={props.comicPressed} whileHover={{scale: 1.1}}>
+        <button className={styles.button} onClick={props.comicPressed}>
           <Link  href={{
           pathname: item?.format ? '/comicsDescription' : props.comicPressed ? null : '/characterDescription',
           query: {
@@ -34,11 +35,12 @@ export default function Cards(props: ICardsProps) {
       src={props.homePage ? item.image : `${item?.thumbnail?.path}.jpg`}
       alt="image"
       />
+
+      <h1 className={styles.title}>{item?.title}</h1>
+      <h1 style={{color: 'green'}} className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1>
        </Link>
-        </motion.button>
-        <div className={styles.description}>
-        <h1 className={styles.title}>{item?.title}</h1>
-        <h1 style={{color: 'yellow'}} className={styles.title}>{ props.homePage ? '' : item.format ? `$ ${item?.prices[0]?.price}` : null}</h1> 
+        </button>
+        <div className={styles.description}> 
 
         {item?.format ? 
          <div className={styles.add_to_card_content}>
@@ -48,10 +50,11 @@ export default function Cards(props: ICardsProps) {
                 : 0}
            </h3>
            <div className={styles.add_to_card_plus_content}>
-              <button className={styles.add_to_card_Button} 
-              onClick={() => addProductToCard({id: item?.id, price: item?.prices[0]?.price})}>+ Add</button>
-              <button className={styles.add_to_card_Button} 
-              onClick={() => removeProductToCard(item?.id)}>- remove</button>
+           <button onClick={() => addProductToCard({id: item?.id, price: item?.prices[0]?.price})}
+            className={styles.add_to_Card_butt}>
+           <AiOutlineShoppingCart size={'2em'} />
+           <p style={{fontSize: '13px'}}>Adicionar ao carrinho</p>
+            </button>
            </div>
         </div> : null }
        
