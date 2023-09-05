@@ -18,5 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # 🚀 Loja de Quadrinhos Marvel - Desenvolvimento Web 🌐
 
+![Tela inicial](./src/assets/images/homepage.png)
 
 
