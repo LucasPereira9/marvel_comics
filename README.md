@@ -31,6 +31,18 @@ a react.js application that gets all the data from the marvel api: 'https://deve
     <a rel="noopener" target="_blank"><img width="150" src="./src/assets/images/paymentpage.png" alt="payment"></a>
 </p>
 
+## Funcionalidades
+
+- **TypeScript:** We use TypeScript to add static typing to our code, making it more secure and readable.
+
+- **React.js:** Our project is built with React.js, a popular JavaScript library for creating interactive user interfaces.
+
+- **Next.js:** We use Next.js as a framework for developing web applications, taking advantage of its routing, pre-rendering and performance optimization features.
+
+- **CSS:** We use CSS styles to style our components and create an attractive and responsive interface.
+
+- **Context API:** We implemented React's Context API to manage the global state of our application, allowing efficient sharing of data between components.
+
 
 ---
 <p align="center">
