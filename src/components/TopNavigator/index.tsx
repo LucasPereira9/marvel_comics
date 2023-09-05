@@ -17,10 +17,10 @@ export default function TopNavigator() {
       src="https://logodownload.org/wp-content/uploads/2017/05/marvel-logo-4.png"
       alt="image"
       />
-      <motion.div className={styles.buttonsContainer} layout transition={{layout: {duration: 2}}} >
-          <Button path='/' title='Home' />
-          <Button path='/characterDescription' title='Search Hero' />      
-      </motion.div>
+      <div className={styles.buttonsContainer}>
+          <Button path='/' title='Início' />
+          <Button path='/characterDescription' title='Procurar herói' />      
+      </div>
       <Button path='/shoppingCart' icon={ <AiOutlineShoppingCart size={'2em'} />} />
     </div>
   )

@@ -3,4 +3,5 @@ export interface ISearchProps {
     onchange: any
     value: string
     comics?: boolean
+    loading?: boolean
 }

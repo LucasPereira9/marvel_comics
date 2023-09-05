@@ -15,9 +15,9 @@ export default function PaymentData(props: IPaymentDataProps) {
         <div className={styles.content}>
             <div>
                 <h1 className={styles.promo_title}> Activate the cupom?</h1>
-        <motion.button className={styles.promo_input} onClick={() => setIsCupomPressed(!isCupomPressed)}>
+        <button className={styles.promo_input} onClick={() => setIsCupomPressed(!isCupomPressed)}>
       {isCupomPressed ?  'cupom LUCASHIRED is online' : 'Turn on cupom'}
-       </motion.button>
+       </button>
              </div>
              <div>
                 <div className={styles.payment_amount}>
@@ -35,7 +35,6 @@ export default function PaymentData(props: IPaymentDataProps) {
              </div>
             
              </div>
-             <button onClick={props.payPressed} className={styles.pay_button}>{props.loading ? <LoadingSpinner /> : 'Pagar'}</button>
         </div>
         
       

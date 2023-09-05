@@ -91,7 +91,7 @@ export default function Description() {
       description={mainComic?.description.length > 1 ? mainComic?.description : 'herói sem descriçao'}
       title={mainComic?.name} />
 
-      <h1 className={styles.subtitle}>Avaible Comics</h1>
+      <h1 className={styles.subtitle}>Gibis Disponível</h1>
 
       <Cards items={relatedComics} />
       </>

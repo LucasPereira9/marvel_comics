@@ -4,29 +4,33 @@ import styles from './page.module.css'
 import TopNavigator from '@/components/TopNavigator';
 import { CartContext } from '../layout';
 import ApiServices from '../../services/api'
-import Cards from '@/components/Cards';
 import Loading from '@/components/Loading';
-import PaymentData from '@/components/paymentData';
 import { Modal } from '@/components/modal';
-import Button from '@/components/Button';
 import { AiOutlineLinkedin, AiFillGithub } from 'react-icons/ai';
+import Image from 'next/image';
+import LoadingSpinner from '@/components/loadSpinner';
 
 
 export default function ShoppingCart() {
   const [loading, setLoading] = React.useState(true as boolean)
   const [paymentLoading, setPaymentLoading] = React.useState(false as boolean)
+  const [readingValue, setReadingValue] = React.useState(false as boolean)
   const [CartItems, setCartItems] = React.useState()
   const [isModalOpen, setModalState] = React.useState(false);
   const [totalValue, setTotalValue] = React.useState()
 
   const {
-    productsCart
+    productsCart,
+    addProductToCard,
+    removeProductToCard,
+    ClearCart
   } = useContext(CartContext);
  
   const toggleModal = () => setModalState(!isModalOpen);
 
 
   const GetComics = async () => {
+    setReadingValue(true)
     try {
       const test = [];
 
@@ -37,6 +41,7 @@ export default function ShoppingCart() {
         test.push(result.data.data.results[0]);
       }
       setCartItems(test)
+      setReadingValue(false)
       handleTotal()
       setTimeout(() => {
         setLoading(false)
@@ -62,7 +67,7 @@ export default function ShoppingCart() {
     setTimeout(() => {
       setModalState(true)
       setPaymentLoading(false)
-    }, 3000);
+    }, 2000);
     
   }
 
@@ -77,19 +82,61 @@ export default function ShoppingCart() {
       <div className={styles.empyt_content}>
           <h1 style={{margin: '60px'}}>carrinho vazio</h1>
       </div> : 
-      <>
-      <Cards items={CartItems} />
-      <div style={{display: 'flex', justifyContent: 'center'}}>
-      <PaymentData loading={paymentLoading} payPressed={() =>HandlePayment() } subtotal={totalValue} promo={totalValue} total={totalValue} />
-      </div>
-      </>  }
+      <div className={styles.container}>
+       {CartItems?.map((item: any, index: number) => {
+          return (
+            <div className={styles.comics_content} key={index}>
+               <div>
+               <Image style={{borderRadius: '6px'}}
+                    width={80} 
+                    height={80}
+                  src={`${item?.thumbnail?.path}.jpg`}
+                  alt="image"
+                  />
+              </div>
+              <div style={{minWidth: '560px'}}>
+              <a className={styles.title}>{item.title}</a>
+              </div>
+              <div className={styles.container_buttons}>
+              <button className={styles.round_button}  onClick={() => removeProductToCard(item?.id)} >-</button>
+                  <span className={styles.contador}>
+                      {productsCart.find((comic) => comic.id === item?.id)?.qtd
+                    ? productsCart.find((comic) => comic.id === item?.id)?.qtd
+                    : 0}
+                  </span>
+                  <button className={styles.round_button} onClick={() => addProductToCard({id: item?.id, price: item?.prices[0]?.price})}
+                  >+</button>
+             </div>
+            </div>
+          )
+        })}  <div>
+            <div className={styles.payment_amount}>
+                  <h1>Subtotal</h1>
+              <h2 className={styles.payment_value}>{readingValue ? <LoadingSpinner /> : `$ ${totalValue}`}</h2>
+              </div>
+              <div className={styles.payment_amount}>
+                  <h1>Cupom</h1>
+              <h2 className={styles.payment_value}>{readingValue ? <LoadingSpinner /> : `-$ ${totalValue}`}</h2>
+              </div>
+              <div className={styles.payment_amount}>
+                  <h1>total</h1>
+              <h2 style={{fontWeight: 'bold'}} className={styles.payment_value}>{readingValue ? <LoadingSpinner /> : '$ 00,00'}</h2>
+                
+              </div>
+              
+          </div>
+        <div style={{display: 'flex', }}>
+        <button onClick={() => ClearCart()} style={{backgroundColor: 'gray'}} className={styles.pay_button}>limpar carrinho</button> 
+          <button onClick={() => HandlePayment()} className={styles.pay_button}>{paymentLoading ? <LoadingSpinner /> : 'Finalizar compra'}</button>  
+        </div>    
+       </div> }
 
       <Modal
-        title={'Thanks for using my aplication'}
+        title={'Muito obrigado por usar minha loja'}
         isOpen={isModalOpen}
         onClose={toggleModal}
       >
-        to see more details about the developer, check the links below
+        para mais detalhes sobre o desenvolvedor, entre em um dos link abaixo
         <div>
         <a href="https://www.linkedin.com/in/lucas-almeida-5280b9206/" target="_blank" rel="noopener noreferrer">
         <AiOutlineLinkedin size={'3em'}  />
