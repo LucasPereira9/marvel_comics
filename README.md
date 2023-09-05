@@ -31,7 +31,8 @@ a react.js application that gets all the data from the marvel api: 'https://deve
     <a rel="noopener" target="_blank"><img width="150" src="./src/assets/images/paymentpage.png" alt="payment"></a>
 </p>
 
-## Funcionalidades
+---
+## Functionalities
 
 - **TypeScript:** We use TypeScript to add static typing to our code, making it more secure and readable.
 
