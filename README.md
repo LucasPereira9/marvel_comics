@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Description
 
-a react.js application that gets all the data from the marvel api: 'https://developer.marvel.com/'
+a marvel comic shop that gets all the data from the marvel api: 'https://developer.marvel.com/'
 
 
 <p align="center">
